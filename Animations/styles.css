@@ -1,0 +1,237 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: black;
+  height: 800px;
+}
+table {
+  margin: auto;
+}
+tr,
+td {
+  border: 2px solid white;
+  border-collapse: collapse;
+  width: 450px;
+  height: 400px;
+  text-align: center;
+}
+/* HEART=========================*/
+img {
+  width: 150px;
+  height: 150px;
+  animation: heart_pumping 1s infinite linear;
+}
+
+@keyframes heart_pumping {
+  0% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+/*HIDDEN CIRCLE================================*/
+.animate {
+  width: 450px;
+  height: 400px;
+  position: relative;
+}
+.ball1,
+.ball2 {
+  width: 65px;
+  height: 65px;
+  margin: 3px;
+  background-color: lightskyblue;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  animation: bounce 2s ease-in-out infinite;
+}
+.ball2 {
+  top: auto;
+  bottom: 0;
+  animation-delay: -1s;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+/*JUMPING BALL=================================*/
+.jumper {
+  width: 450px;
+  height: 400px;
+  position: relative;
+  background-color: white;
+}
+.ball {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: url(image/s-l1200.jpg);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  left: 150px;
+  bottom: 30px;
+  animation: jumping 1s infinite alternate;
+  animation-direction: alternate;
+  z-index: 1;
+}
+.shadow {
+  width: 120px;
+  height: 40px;
+  background: radial-gradient(ellipse at center center, black, white);
+  position: absolute;
+  bottom: 20px;
+  border-radius: 50%;
+  left: 150px;
+  animation: shadow 1s infinite alternate;
+}
+
+@keyframes jumping {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-250px);
+  }
+}
+@keyframes shadow {
+  0% {
+    transform: scale(0.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/*MOVEING BOX====================================================*/
+.container {
+  width: inherit;
+  height: inherit;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box1,
+.box2 {
+  width: 200px;
+  height: 150px;
+  position: absolute;
+}
+.box1 {
+  background-color: rgb(131, 177, 192);
+  animation: diving 3s ease-in-out infinite alternate;
+}
+
+.box2 {
+  background-color: rgb(212, 57, 57);
+  opacity: 0.7;
+  animation: diving2 3s ease-in-out infinite alternate;
+}
+.box3 {
+  width: 160px;
+  height: 110px;
+  background-color: #ffffff;
+  position: absolute;
+  box-shadow: 10px 10px 40px 0;
+}
+@keyframes diving {
+  0% {
+    transform: skewy(-13deg);
+  }
+  100% {
+    transform: skewy(13deg);
+  }
+}
+@keyframes diving2 {
+  0% {
+    transform: skewy(13deg);
+  }
+  100% {
+    transform: skewy(-13deg);
+  }
+}
+/*SPINNER==================================================*/
+
+.circle {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(to right, rgb(14, 113, 212) 50%, transparent 50%);
+  border-radius: 50%;
+  margin: auto;
+  box-shadow: 10px -50px 70px 10px rgb(52, 141, 230) inset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: spinner 1.5s linear infinite;
+}
+.circle::after {
+  content: "";
+  display: block;
+  width: 180px;
+  height: 180px;
+  background-color: black;
+  border-radius: 50%;
+}
+@keyframes spinner {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*THE WAVE=================================================*/
+
+.wave {
+  width: 70px;
+  height: 150px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wave1,
+.wave2,
+.wave3,
+.wave4,
+.wave5 {
+  height: 20px;
+  width: 8px;
+  border-radius: 2px;
+}
+.wave1,
+.wave5 {
+  background-color: orange;
+  animation: up_down 450ms linear infinite alternate;
+}
+
+.wave2,
+.wave4 {
+  background-color: rgb(189, 120, 88);
+  animation: up_down 550ms linear infinite alternate;
+}
+
+.wave3 {
+  background-color: rgb(116, 124, 44);
+  animation: up_down 600ms linear infinite alternate;
+}
+
+@keyframes up_down {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scaley(3.5);
+  }
+}
